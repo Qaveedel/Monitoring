@@ -1,0 +1,13 @@
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1m
+  receiver: 'slack'
+
+receivers:
+- name: 'slack'
+  slack_configs:
+  - api_url: '<SLACK_WEBHOOK_URL>'
+    channel: '<SLACK_CHANNEL>'
+    send_resolved: true
